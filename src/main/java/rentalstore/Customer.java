@@ -53,7 +53,7 @@ public class Customer {
 
 	private String footerString(double totalAmount, int frequentRenterPoints) {
 		return "Amount owed is " + String.valueOf(totalAmount) + "\n"
-		+ "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
+				+ "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
 	}
 
 	private String eachRentalString(double thisAmount, Rental each) {
