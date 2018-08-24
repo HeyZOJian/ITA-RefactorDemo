@@ -5,20 +5,10 @@ public class Rental {
 	private int dayRented;
 	private MovieType movieType;
 
-	public Rental(Movie movie, int dayRented) {
+	public Rental(Movie movie, int dayRented, MovieType movieType) {
 		this.movie = movie;
 		this.dayRented = dayRented;
-		switch (movie.getPriceCode()) {
-			case Movie.REGULAR:
-				movieType = new Regular();
-				break;
-			case Movie.NEW_RELEASE:
-				movieType = new NewRelease();
-				break;
-			case Movie.CHILDRENS:
-				movieType = new Childrens();
-				break;
-		}
+		this.movieType = movieType;
 	}
 
 	public Movie getMovie() {
