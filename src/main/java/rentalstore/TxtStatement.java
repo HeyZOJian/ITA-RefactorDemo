@@ -1,6 +1,5 @@
 package rentalstore;
 
-import java.util.Enumeration;
 import java.util.Vector;
 
 /**
@@ -13,7 +12,7 @@ public class TxtStatement extends Statement {
 		super.name = name;
 	}
 
-	public int updateFrequentRenterPoints(int frequentRenterPoints, Rental each) {
+	public double updateFrequentRenterPoints(double frequentRenterPoints, Rental each) {
 		frequentRenterPoints++;
 		//add bonus for a two day new release rental
 		if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE) && each.getDayRented() > 1) {
@@ -21,7 +20,7 @@ public class TxtStatement extends Statement {
 		}
 		return frequentRenterPoints;
 	}
-	public String footerString(double totalAmount, int frequentRenterPoints) {
+	public String footerString(double totalAmount, double frequentRenterPoints) {
 		return "Amount owed is " + String.valueOf(totalAmount) + "\n"
 				+ "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
 	}

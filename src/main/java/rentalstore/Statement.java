@@ -1,7 +1,5 @@
 package rentalstore;
 
-import org.omg.CORBA.PUBLIC_MEMBER;
-
 import java.util.Enumeration;
 import java.util.Vector;
 
@@ -9,12 +7,12 @@ import java.util.Vector;
  * Created by Vito Zhuang on 8/26/2018.
  */
 public abstract class Statement {
-	public Vector rentals;
-	public String name;
+	Vector rentals;
+	String name;
 
-	public String getValue(){
+	String getValue(){
 		double totalAmount = 0;
-		int frequentRenterPoints = 0;
+		double frequentRenterPoints = 0;
 		Enumeration rentals = this.rentals.elements();
 		// header
 		StringBuilder result = new StringBuilder(headerString());
@@ -34,8 +32,10 @@ public abstract class Statement {
 
 		return result.toString();
 	};
-	public abstract int updateFrequentRenterPoints(int frequentRenterPoints, Rental each);
+	public double updateFrequentRenterPoints(double frequentRenterPoints, Rental each){
+		return each.getMovieType().updateFrequentRenterPoints(frequentRenterPoints,each);
+	};
 	public abstract String headerString();
 	public abstract String eachRentalString(double thisAmount, Rental each);
-	public abstract String footerString(double totalAmount, int frequentRenterPoints);
+	public abstract String footerString(double totalAmount, double frequentRenterPoints);
 }

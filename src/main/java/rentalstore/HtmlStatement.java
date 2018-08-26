@@ -1,6 +1,5 @@
 package rentalstore;
 
-import java.util.Enumeration;
 import java.util.Vector;
 
 /**
@@ -13,15 +12,7 @@ public class HtmlStatement extends Statement {
 		super.name = name;
 	}
 
-	public int updateFrequentRenterPoints(int frequentRenterPoints, Rental each) {
-		frequentRenterPoints++;
-		//add bonus for a two day new release rental
-		if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE) && each.getDayRented() > 1) {
-			frequentRenterPoints++;
-		}
-		return frequentRenterPoints;
-	}
-	public String footerString(double totalAmount, int frequentRenterPoints) {
+	public String footerString(double totalAmount, double frequentRenterPoints) {
 		return "<P>You owe<EM>" + String.valueOf(totalAmount) + "</EM><P>\n"
 				+ "On this rental you earned <EM>" + String.valueOf(frequentRenterPoints) + "</EM> frequent renter points<P>";
 	}

@@ -3,7 +3,7 @@ package rentalstore;
 /**
  * Created by Vito Zhuang on 8/24/2018.
  */
-public class Childrens implements MovieType {
+public class Childrens extends MovieType {
 	public double getAmount(int dayRented) {
 		double thisAmount = 1.5;
 		if (dayRented > 3) {
