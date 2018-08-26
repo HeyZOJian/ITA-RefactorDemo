@@ -6,36 +6,11 @@ import java.util.Vector;
 /**
  * Created by Vito Zhuang on 8/26/2018.
  */
-public class TxtStatement implements Statement {
-	private Vector rentals;
-	private String name;
+public class TxtStatement extends Statement {
 
 	public TxtStatement(Vector rental, String name) {
-		this.rentals = rental;
-		this.name = name;
-	}
-
-	public String getValue() {
-		double totalAmount = 0;
-		int frequentRenterPoints = 0;
-		Enumeration rentals = this.rentals.elements();
-		// header
-		StringBuilder result = new StringBuilder(headerString());
-		// content
-		while (rentals.hasMoreElements()) {
-			double thisAmount = 0;
-			Rental each = (Rental) rentals.nextElement();
-			thisAmount += each.getAmount();
-			//add frequent renter points
-			frequentRenterPoints = updateFrequentRenterPoints(frequentRenterPoints, each);
-			//show figures for this rental
-			result.append(eachRentalString(thisAmount, each));
-			totalAmount += thisAmount;
-		}
-		//footer
-		result.append(footerString(totalAmount, frequentRenterPoints));
-
-		return result.toString();
+		super.rentals = rental;
+		super.name = name;
 	}
 
 	public int updateFrequentRenterPoints(int frequentRenterPoints, Rental each) {
