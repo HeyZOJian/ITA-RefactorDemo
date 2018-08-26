@@ -12,14 +12,6 @@ public class TxtStatement extends Statement {
 		super.name = name;
 	}
 
-	public double updateFrequentRenterPoints(double frequentRenterPoints, Rental each) {
-		frequentRenterPoints++;
-		//add bonus for a two day new release rental
-		if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE) && each.getDayRented() > 1) {
-			frequentRenterPoints++;
-		}
-		return frequentRenterPoints;
-	}
 	public String footerString(double totalAmount, double frequentRenterPoints) {
 		return "Amount owed is " + String.valueOf(totalAmount) + "\n"
 				+ "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
