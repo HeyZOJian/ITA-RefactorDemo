@@ -22,4 +22,9 @@ public class Customer {
 	public String getTxtStatement() {
 		return new TxtStatement(rentals,getName()).getValue();
 	}
+
+	public String getHtmlStatement(){
+		return new HtmlStatement(rentals,getName()).getValue();
+	}
+
 }
